@@ -1,4 +1,4 @@
-import { NativeModules, Platform } from 'react-native';
+import { NativeModules, PermissionsAndroid, Platform } from 'react-native';
 
 const LINKING_ERROR =
   `The package 'react-native-send-direct-sms' doesn't seem to be linked. Make sure: \n\n` +
@@ -6,7 +6,7 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo Go\n';
 
-const SendDirectSms = NativeModules.SendDirectSms
+const SendSms = NativeModules.SendDirectSms
   ? NativeModules.SendDirectSms
   : new Proxy(
       {},
@@ -17,6 +17,26 @@ const SendDirectSms = NativeModules.SendDirectSms
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return SendDirectSms.multiply(a, b);
-}
+
+const SendDirectSms = async (mobileNumber: string, bodySMS: string): Promise<string> => {
+  return new Promise(async (resolve, reject) => {
+    if (mobileNumber) {
+      try {
+        // @ts-ignore
+        const granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.SEND_SMS);
+        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+          SendSms.sendDirectSms(mobileNumber, bodySMS);
+          resolve('SMS sent'); // Resolve the promise if SMS sent successfully
+        } else {
+          reject('SMS permission denied'); // Reject the promise if permission is denied
+        }
+      } catch (error) {
+        reject(error); // Reject the promise if an error occurs
+      }
+    } else {
+      reject('Invalid mobile number'); // Reject the promise for an invalid mobile number
+    }
+  });
+};
+
+export {SendDirectSms};

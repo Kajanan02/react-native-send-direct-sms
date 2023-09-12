@@ -7,6 +7,8 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.module.annotations.ReactModule;
+import com.facebook.react.uimanager.IllegalViewOperationException;
+import android.telephony.SmsManager;
 
 @ReactModule(name = SendDirectSmsModule.NAME)
 public class SendDirectSmsModule extends ReactContextBaseJavaModule {
@@ -26,7 +28,14 @@ public class SendDirectSmsModule extends ReactContextBaseJavaModule {
   // Example method
   // See https://reactnative.dev/docs/native-modules-android
   @ReactMethod
-  public void multiply(double a, double b, Promise promise) {
-    promise.resolve(a * b);
+  public void sendDirectSms(String phoneNumber, String msg) {
+    try {
+      SmsManager smsManager = SmsManager.getDefault();
+      smsManager.sendTextMessage(
+        phoneNumber, null, msg, null, null
+      );
+    } catch (Exception ex) {
+      System.out.println("couldn't send message.");
+    }
   }
 }
