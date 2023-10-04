@@ -5,13 +5,13 @@ import { SendDirectSms } from 'react-native-send-direct-sms';
 
 export default function App() {
   const [mobileNumber, setMobileNumber] = React.useState('');
-  const [bodySMS, setBodySMS] = React.useState("Hello World");
+  const [bodySMS, setBodySMS] = React.useState('Hello World');
 
 
   function sendSmsData(mobileNumber: string, bodySMS: string) {
     SendDirectSms(mobileNumber, bodySMS)
-      .then((res: any) => console.log("then", res))
-      .catch((err: any) => console.log("catch", err))
+      .then((res: any) => console.log('then', res))
+      .catch((err: any) => console.log('catch', err));
   }
 
   return (
@@ -25,8 +25,8 @@ export default function App() {
         onChangeText={
           (mobileNumber) => setMobileNumber(mobileNumber)
         }
-        placeholder={'Enter Conatct Number to Call'}
-        keyboardType="numeric"
+        placeholder={'Enter Mobile Number'}
+        keyboardType='numeric'
         style={styles.textInput}
       />
       <Text style={styles.titleTextsmall}>
@@ -38,7 +38,7 @@ export default function App() {
         placeholder={'Enter SMS body'}
         style={styles.textInput}
       />
-      <TouchableOpacity style={styles.sendButton} onPress={()=> sendSmsData("0762925096","Hello World")}>
+      <TouchableOpacity style={styles.sendButton} onPress={() => sendSmsData(mobileNumber, bodySMS)}>
         <Text style={styles.sendButtonLabel}>Send SMS</Text>
       </TouchableOpacity>
     </View>
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal:32
+    paddingHorizontal: 32,
   },
   box: {
     width: 60,
@@ -59,16 +59,16 @@ const styles = StyleSheet.create({
   },
   sendButtonLabel: {
     fontSize: 16,
-    color: "#FFFFFF",
+    color: '#FFFFFF',
 
   },
   sendButton: {
-    width: "100%",
-    backgroundColor: "#22C674",
+    width: '100%',
+    backgroundColor: '#22C674',
     borderRadius: 4,
     opacity: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     paddingVertical: 10,
     marginTop: 30,
   },
@@ -76,17 +76,17 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     marginTop: 16,
     fontSize: 16,
-    alignSelf: "flex-start",
+    alignSelf: 'flex-start',
   },
   textInput: {
     paddingLeft: 16,
     fontSize: 14,
     borderWidth: 1,
-    borderColor: "#3F44511F",
+    borderColor: '#3F44511F',
     borderRadius: 4,
     height: 44,
-    color: "#000000",
+    color: '#000000',
     opacity: 0.75,
-    width: "100%",
+    width: '100%',
   },
 });
