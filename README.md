@@ -37,7 +37,7 @@ function sendSmsData(mobileNumber, bodySMS) {
 
 ## Example
 
-<img src="https://github.com/Kajanan02/resources/blob/main/images/sendsmsexample.jpg" alt="Example Image" width="70%">
+<img src="https://github.com/Kajanan02/resources/blob/main/images/sendsmsexample.jpg" alt="Example Image" width="60%">
 
 
 
