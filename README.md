@@ -142,7 +142,7 @@ See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the 
 
 Or open up [an issue](https://github.com/Kajanan02/react-native-send-direct-sms/issues).
 
----
+
 ## Discussion and Collaboration
 
 In addition to the [Github Issues](https://github.com/Kajanan02/react-native-send-direct-sms/issues) page.
