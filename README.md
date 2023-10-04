@@ -1,4 +1,4 @@
-# react-native-send-direct-sms ![npm version](https://img.shields.io/badge/npm-0.1.1-2)
+# react-native-send-direct-sms ![npm version](https://img.shields.io/badge/npm-0.1.3-2)
 
 
 React Native Send SMS is a JavaScript library for React Native applications that provides a convenient way to send SMS messages programmatically. It enables developers to integrate SMS functionality into their mobile apps, allowing them to send text messages to specified recipients directly from the app. This can be useful for implementing features like SMS-based authentication, notifications, or any other communication that requires sending SMS messages.
@@ -37,7 +37,7 @@ function sendSmsData(mobileNumber, bodySMS) {
 
 ## Example
 
-![](https://github.com/Kajanan02/resources/blob/main/images/sendsmsexample.jpg)
+<img src="https://github.com/Kajanan02/resources/blob/main/images/sendsmsexample.jpg" alt="Example Image" width="70%">
 
 
 
@@ -142,16 +142,17 @@ const styles = StyleSheet.create({
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
 
-Or open up [an issue](https://github.com/Kajanan02/react-native-send-direct-sms/issues).
+Or open up [an issue](https://github.com/Kajanan02/react-native-send-sms/issues).
 
-
+---
 ## Discussion and Collaboration
 
-In addition to the [GitHub Issues](https://github.com/Kajanan02/react-native-send-direct-sms/issues) page.
-
+In addition to the [GitHub Issues](https://github.com/Kajanan02/react-native-send-sms/issues) page.
 
 ## License
 
 MIT
 
+---
 
+Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
